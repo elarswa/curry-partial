@@ -27,3 +27,20 @@ _1;
 // calling a curried function
 curry = adder_curry(5)(6);
 curry;
+
+// short form curried function
+const test = (var1) => (var2) => var1 * var2;
+console.log(test); // lamda
+console.log(test(2)(2));
+
+const urlBuilder = (protocol) => (domain) => (path) =>
+  `${protocol}://${domain}/${path}`;
+
+const httpBuilder = urlBuilder("http");
+const httpsBuilder = urlBuilder("https");
+
+const url1 = httpBuilder("what.com")("notSecure");
+const url2 = httpsBuilder("what.com")("secure");
+
+url1;
+url2;
